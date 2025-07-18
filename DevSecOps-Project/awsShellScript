@@ -1,1 +1,28 @@
+#!/bin/bash
+###################
+#Author : vishal
+#Date : 18 jul
+#Version v1
+# this script will report AWS resource usage 
+# AWS CLI reference 
+###################
+
+# AWS S3
+# AWS EC2
+# AWS Lamda
+# AWS IAM users 
+
+ set +x
+#list s3 buckets 
+ echo “print the list of s3 buckets”
+ aws s3 ls 
+# list EC2 instances 
+  aws ec2 describe-instances 
+# list lambda 
+ aws lambda list-functions
+# list IAM users 
+  aws iam list-users 
+# run -> ./ script.sh | more // to read in better way 
+# jq is json passer and yq is yaml 
+  aws ec2 describe-instances | jq ‘.Reservations[].Instances[].InstanceId’
 
